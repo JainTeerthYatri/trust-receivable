@@ -1,0 +1,21 @@
+{
+  "name": "trustreceivable",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trust infrastructure for MSME receivables — verification, blockchain proof, AI risk intelligence, and Receivable Passport.",
+  "scripts": {
+    "setup": "npm install && npm install --prefix backend && npm install --prefix frontend && npm install --prefix blockchain",
+    "dev": "concurrently -n chain,api,web -c cyan,green,magenta \"npm run blockchain\" \"npm run wait:chain && npm run deploy:contract && npm run backend\" \"npm run frontend\"",
+    "dev:apps": "concurrently -n api,web -c green,magenta \"npm run backend\" \"npm run frontend\"",
+    "backend": "npm run dev --prefix backend",
+    "frontend": "npm run dev --prefix frontend",
+    "blockchain": "npm run node --prefix blockchain",
+    "deploy:contract": "npm run deploy --prefix blockchain",
+    "seed": "npm run seed --prefix backend",
+    "test": "npm run test --prefix blockchain && npm run test --prefix backend",
+    "wait:chain": "node scripts/wait-for-rpc.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

@@ -1,0 +1,20 @@
+export const RECEIVABLE_REGISTRY_ABI = [
+  "function registerInvoice(bytes32 invoiceId, bytes32 invoiceHash)",
+  "function verifyInvoice(bytes32 invoiceId)",
+  "function acceptInvoice(bytes32 invoiceId)",
+  "function markDelivered(bytes32 invoiceId)",
+  "function requestFinancing(bytes32 invoiceId)",
+  "function markFinanced(bytes32 invoiceId)",
+  "function markPaid(bytes32 invoiceId)",
+  "function markDisputed(bytes32 invoiceId)",
+  "function getInvoice(bytes32 invoiceId) view returns (bytes32 invoiceHash, uint8 state, address lastActor, uint256 registeredAt, uint256 updatedAt, bool exists)",
+  "function hashRegistered(bytes32) view returns (bool)",
+  "event InvoiceRegistered(bytes32 indexed invoiceId, bytes32 indexed invoiceHash, address indexed registrar, uint256 timestamp)",
+  "event InvoiceVerified(bytes32 indexed invoiceId, address indexed actor, uint256 timestamp)",
+  "event InvoiceAccepted(bytes32 indexed invoiceId, address indexed actor, uint256 timestamp)",
+  "event InvoiceDelivered(bytes32 indexed invoiceId, address indexed actor, uint256 timestamp)",
+  "event FinancingRequested(bytes32 indexed invoiceId, address indexed actor, uint256 timestamp)",
+  "event InvoiceFinanced(bytes32 indexed invoiceId, address indexed actor, uint256 timestamp)",
+  "event InvoicePaid(bytes32 indexed invoiceId, address indexed actor, uint256 timestamp)",
+  "event InvoiceDisputed(bytes32 indexed invoiceId, address indexed actor, uint256 timestamp)"
+];
